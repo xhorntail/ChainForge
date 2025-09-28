@@ -770,7 +770,7 @@ const LLMResponseInspector: React.FC<LLMResponseInspectorProps> = ({
         }
 
         const getVar = (r: LLMResponse, v: string) =>
-          v === "LLM" ? getLLMName(r) : (StringLookup.get(r.vars[v]) ?? "");
+          v === "LLM" ? getLLMName(r) : StringLookup.get(r.vars[v]) ?? "";
 
         // Then group responses by prompts. Each prompt will become a separate row of the table (will be treated as unique)
         const responses_by_prompt = groupResponsesBy(responses, (r) => {

@@ -189,7 +189,7 @@ const FlowSidebar: React.FC<FlowSidebarProps> = ({
         .catch((error) => {
           let msg: string;
           if (error.response) {
-            msg = `404 Error: ${error.response.status === 404 ? (error.response.data?.error ?? "Not Found") : error.response.data}`;
+            msg = `404 Error: ${error.response.status === 404 ? error.response.data?.error ?? "Not Found" : error.response.data}`;
           } else if (error.request) {
             // Request was made but no response was received
             msg = "No response received from server.";

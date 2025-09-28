@@ -475,7 +475,7 @@ export const VisView = forwardRef<VisViewRef, VisViewProps>(
 
     const castData = (v: LLMResponseData) =>
       typeof v === "string" || typeof v === "number"
-        ? (StringLookup.get(v) ?? "(unknown lookup error)")
+        ? StringLookup.get(v) ?? "(unknown lookup error)"
         : v.d;
 
     // Define functions accessible from the parent component
@@ -516,7 +516,7 @@ export const VisView = forwardRef<VisViewRef, VisViewProps>(
           if (selectedLLMGroup === "LLM")
             return typeof resp_obj.llm === "string" ||
               typeof resp_obj.llm === "number"
-              ? (StringLookup.get(resp_obj.llm) ?? "(LLM lookup failed)")
+              ? StringLookup.get(resp_obj.llm) ?? "(LLM lookup failed)"
               : resp_obj.llm?.name;
           else return resp_obj.metavars[selectedLLMGroup] as string;
         };
