@@ -1278,6 +1278,7 @@ export async function call_ollama_provider(
     "system_msg",
     "chat_history",
     "format",
+    "temperature",
   ])
     if (params && name in params) delete params[name];
 
