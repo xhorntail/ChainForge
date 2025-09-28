@@ -1218,7 +1218,7 @@ export async function executepy(
   executor?: "flask" | "pyodide",
 ): Promise<EvaluatedResponsesResults> {
   // Determine where we can execute Python
-  executor = APP_IS_RUNNING_LOCALLY() ? executor ?? "flask" : "pyodide";
+  executor = APP_IS_RUNNING_LOCALLY() ? (executor ?? "flask") : "pyodide";
 
   let exec_response: Dict = {};
 

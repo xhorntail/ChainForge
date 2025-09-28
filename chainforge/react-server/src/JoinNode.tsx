@@ -98,7 +98,7 @@ const displayJoinedTexts = (
             : "#ddd"
         }
         width="100%"
-        vars={typeof info === "string" ? {} : info.fill_history ?? {}}
+        vars={typeof info === "string" ? {} : (info.fill_history ?? {})}
         truncLenForVars={72}
         llmName={llm_name ?? ""}
       >
@@ -245,8 +245,8 @@ const JoinNode: React.FC<JoinNodeProps> = ({ data, id }) => {
         const joined_text = joinTexts(
           items.map((it) =>
             typeof it === "string" || typeof it === "number"
-              ? StringLookup.get(it) ?? ""
-              : StringLookup.get(it.text) ?? "",
+              ? (StringLookup.get(it) ?? "")
+              : (StringLookup.get(it.text) ?? ""),
           ),
           formatting,
         );

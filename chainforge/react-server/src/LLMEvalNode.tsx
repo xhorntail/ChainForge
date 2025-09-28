@@ -207,8 +207,8 @@ export const LLMEvaluatorComponent = forwardRef<
   const getPromptTemplate = () => {
     // Choose the appropriate format instruction based on the reasoning checkbox
     const formatting_instr = useReasoning
-      ? OUTPUT_FORMAT_PROMPTS_REASONING[expectedFormat] ?? ""
-      : OUTPUT_FORMAT_PROMPTS[expectedFormat] ?? "";
+      ? (OUTPUT_FORMAT_PROMPTS_REASONING[expectedFormat] ?? "")
+      : (OUTPUT_FORMAT_PROMPTS[expectedFormat] ?? "");
 
     return (
       "You are evaluating text that will be pasted below. " +

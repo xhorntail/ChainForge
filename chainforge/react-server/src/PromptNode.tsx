@@ -672,7 +672,7 @@ const PromptNode: React.FC<PromptNodeProps> = ({
           metavars: info.metavars ?? {},
           llm:
             typeof info?.llm === "string" || typeof info?.llm === "number"
-              ? StringLookup.get(info.llm) ?? "(LLM lookup failed)"
+              ? (StringLookup.get(info.llm) ?? "(LLM lookup failed)")
               : StringLookup.get(info?.llm?.name),
           uid: uuid(),
         };
@@ -1202,7 +1202,8 @@ Soft failing by replacing undefined with empty strings.`,
                   o.metavars[llm_metavar_key] =
                     typeof resp_obj.llm === "string" ||
                     typeof resp_obj.llm === "number"
-                      ? StringLookup.get(resp_obj.llm) ?? "(LLM lookup failed)"
+                      ? (StringLookup.get(resp_obj.llm) ??
+                        "(LLM lookup failed)")
                       : resp_obj.llm.name;
 
                   return o;
